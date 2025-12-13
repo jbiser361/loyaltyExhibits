@@ -306,8 +306,8 @@ function HeroStat({ label, value }: { label: string; value: string }) {
 
 function AboutSection() {
   return (
-    <section id="about" className="scroll-mt-24 py-16">
-      <h2 className="text-2xl font-semibold tracking-tight">About</h2>
+    <section id="works" className="scroll-mt-24 py-16">
+      <h2 className="text-2xl font-semibold tracking-tight">Works</h2>
       <p className="mt-4 max-w-2xl text-sm text-neutral-300 sm:text-base">
         Loyalty Exhibits is a woman-owned creative design firm located in the heart of Washington, D.C. We specialize in crafting distinctive, high-impact booth spaces for companies that want to stand out and truly showcase their products and services.
 
