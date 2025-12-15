@@ -380,12 +380,12 @@ function AboutCard({ title, body }: { title: string; body: string }) {
 
 function GallerySection() {
   const items = [
-    { id: 1, title: "Artwork 1" },
-    { id: 2, title: "Artwork 2" },
-    { id: 3, title: "Artwork 3" },
-    { id: 4, title: "Artwork 4" },
-    { id: 5, title: "Artwork 5" },
-    { id: 6, title: "Artwork 6" },
+    { id: 1, title: "Exhibit 1" },
+    { id: 2, title: "Exhibit 2" },
+    { id: 3, title: "Exhibit 3" },
+    { id: 4, title: "Exhibit 4" },
+    { id: 5, title: "Exhibit 5" },
+    { id: 6, title: "Exhibit 6" },
   ];
 
   return (
@@ -446,7 +446,10 @@ function WorksCarousel({
 
     // scroll by ~1 screen of cards
     const amount = Math.round(el.clientWidth * 0.9);
-    el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
+    el.scrollBy({
+      left: dir === "left" ? -amount : amount,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -502,8 +505,8 @@ function WorksCarousel({
                 key={item.id}
                 className="
                   shrink-0
-                  w-[78%] sm:w-[48%] md:w-[32%]
-                  aspect-[4/5]
+                  w-[88%] sm:w-[70%] md:w-[520px]
+                  aspect-[16/9]
                   overflow-hidden rounded-2xl
                   border border-white/10
                   bg-gradient-to-br from-neutral-800 to-neutral-900
@@ -533,7 +536,7 @@ function WorksCarousel({
         <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-neutral-950 to-transparent" />
       </div>
 
-      {/* little hint text for mobile */}
+      {/* mobile hint */}
       <div className="mt-3 text-xs text-neutral-400 sm:hidden">
         Swipe to view more →
       </div>
