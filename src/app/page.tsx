@@ -124,11 +124,11 @@ function HeroSection() {
       <HeroCarousel />
 
       {/* Stats under the carousel */}
-      <div className="mt-10 grid gap-4 sm:grid-cols-3">
+      {/* <div className="mt-10 grid gap-4 sm:grid-cols-3">
         <HeroStat label="Installations" value="150+" />
         <HeroStat label="Cities" value="20+" />
         <HeroStat label="Client Satisfaction" value="4.9/5" />
-      </div>
+      </div> */}
     </section>
   );
 }
@@ -306,34 +306,58 @@ function HeroStat({ label, value }: { label: string; value: string }) {
 
 function AboutSection() {
   return (
-    <section id="works" className="scroll-mt-24 py-16">
-      <h2 className="text-2xl font-semibold tracking-tight">Works</h2>
-      <p className="mt-4 max-w-2xl text-sm text-neutral-300 sm:text-base">
-        Loyalty Exhibits is a woman-owned creative design firm located in the heart of Washington, D.C. We specialize in crafting distinctive, high-impact booth spaces for companies that want to stand out and truly showcase their products and services.
+    <section id="about" className="scroll-mt-24 py-16">
+      <h2 className="text-2xl font-semibold tracking-tight">
+        About Loyalty Exhibits
+      </h2>
 
-Our team blends innovative design, polished craftsmanship, and flawless execution to transform ordinary exhibit footprints into immersive brand experiences. Whether you're unveiling a new product, strengthening market presence, or elevating your company’s image at a major show, we build spaces that tell your story with clarity and style.
-      </p>
-<div className="mt-6 grid gap-4 sm:grid-cols-3 place-items-cente justify-center">
-  <AboutCard title="Small business women owned." body="Let us bring your vision to life—beautifully and professionally." />
-  <AboutCard title="Over 30 years of experience." body="" />
-</div>
+      {/* Top row — grid */}
+      <div className="mt-6 grid gap-4 sm:grid-cols-3">
+        <AboutCard title="Small business women owned." body="" />
+        <AboutCard title="Over 30 years of experience." body="" />
+        <AboutCard title="Corporate Events." body="" />
+      </div>
+
+      {/* Bottom row — centered, SAME WIDTH cards */}
+      <div className="mt-4 flex justify-center gap-4">
+        <AboutCard title="Brand Activations." body="" />
+        <AboutCard title="Permanent Branded Spaces." body="" />
+      </div>
     </section>
   );
 }
 
 function AboutCard({ title, body }: { title: string; body: string }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm">
-      <div className="text-sm font-medium">{title}</div>
-      <p className="mt-2 text-xs text-neutral-300 sm:text-sm">{body}</p>
+    <div
+      className="
+        w-full
+        sm:max-w-[420px]
+        min-h-[96px]
+        rounded-2xl
+        border border-white/10
+        bg-white/5
+        px-6 py-4
+        text-sm
+        flex items-center
+      "
+    >
+      <div className="w-full text-center">
+        <div className="text-sm font-medium">{title}</div>
+        {body && (
+          <p className="mt-2 text-xs text-neutral-300 sm:text-sm">
+            {body}
+          </p>
+        )}
+      </div>
     </div>
   );
 }
 
 function GallerySection() {
   return (
-    <section id="gallery" className="scroll-mt-24 py-16">
-      <h2 className="text-2xl font-semibold tracking-tight">Gallery</h2>
+    <section id="works" className="scroll-mt-24 py-16">
+      <h2 className="text-2xl font-semibold tracking-tight">Works</h2>
       <p className="mt-4 max-w-2xl text-sm text-neutral-300 sm:text-base">
         Some exmaples of our work.
       </p>

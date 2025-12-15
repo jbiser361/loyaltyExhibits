@@ -5,8 +5,8 @@ import TopBrandTabs from "./TopBrandTabs";
 
 const sections = [
   { id: "hero", label: "Home" },
+  { id: "about", label: "About Loyalty" },
   { id: "works", label: "Works" },
-  { id: "gallery", label: "Gallery" },
   { id: "contact", label: "Contact" },
 ];
 
