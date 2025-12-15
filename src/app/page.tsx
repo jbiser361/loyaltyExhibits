@@ -14,108 +14,118 @@ export default function Page() {
       {/* Main content */}
       <main className="mx-auto max-w-5xl px-4">
         <HeroSection />
+
+        {/* NEW: Screenshot content block (between hero + about) */}
+        <BrandShineCard />
+
         <AboutSection />
         <GallerySection />
         <ContactSection />
       </main>
 
       {/* ---- FOOTER ---- */}
-<footer className="mt-16 border-t border-white/10 py-8 text-xs text-neutral-400">
-  <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-4">
+      <footer className="mt-16 border-t border-white/10 py-8 text-xs text-neutral-400">
+        <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-4">
+          {/* ---- SOCIAL ICONS ---- */}
+          <div className="flex items-center gap-6">
+            {/* Instagram */}
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="hover:opacity-80 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="opacity-80 hover:opacity-100 transition"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
 
-    {/* ---- SOCIAL ICONS ---- */}
-    <div className="flex items-center gap-6">
+            {/* LinkedIn */}
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              className="hover:opacity-80 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth="1.7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="opacity-80 hover:opacity-100 transition"
+              >
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2h-1c-1.1 0-2 .9-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
 
-      {/* Instagram */}
-      <a
-        href="https://instagram.com"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Instagram"
-        className="hover:opacity-80 transition"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="28"
-          height="28"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="white"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="opacity-80 hover:opacity-100 transition"
-        >
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-        </svg>
-      </a>
+            {/* YouTube */}
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="YouTube"
+              className="hover:opacity-80 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="white"
+                className="opacity-80 hover:opacity-100 transition"
+              >
+                <path d="M19.6 3.2H4.4A4.4 4.4 0 0 0 0 7.6v8.8a4.4 4.4 0 0 0 4.4 4.4h15.2a4.4 4.4 0 0 0 4.4-4.4V7.6a4.4 4.4 0 0 0-4.4-4.4zM9.75 15.57V8.43L15.5 12l-5.75 3.57z" />
+              </svg>
+            </a>
+          </div>
 
-      {/* LinkedIn */}
-      <a
-        href="https://linkedin.com"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="LinkedIn"
-        className="hover:opacity-80 transition"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="28"
-          height="28"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="white"
-          strokeWidth="1.7"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="opacity-80 hover:opacity-100 transition"
-        >
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2h-1c-1.1 0-2 .9-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-          <rect x="2" y="9" width="4" height="12"></rect>
-          <circle cx="4" cy="4" r="2"></circle>
-        </svg>
-      </a>
+          {/* ---- LEGAL LINKS ---- */}
+          <div className="flex flex-wrap items-center justify-center gap-4 text-neutral-400">
+            <a href="/terms" className="hover:text-neutral-200">
+              Terms &amp; Conditions
+            </a>
+            <span className="h-3 w-px bg-white/20" />
+            <a href="/privacy" className="hover:text-neutral-200">
+              Privacy Statement
+            </a>
+          </div>
 
-      {/* YouTube */}
-      <a
-        href="https://youtube.com"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="YouTube"
-        className="hover:opacity-80 transition"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-          fill="white"
-          className="opacity-80 hover:opacity-100 transition"
-        >
-          <path d="M19.6 3.2H4.4A4.4 4.4 0 0 0 0 7.6v8.8a4.4 4.4 0 0 0 4.4 4.4h15.2a4.4 4.4 0 0 0 4.4-4.4V7.6a4.4 4.4 0 0 0-4.4-4.4zM9.75 15.57V8.43L15.5 12l-5.75 3.57z"/>
-        </svg>
-      </a>
-    </div>
+          {/* ---- COPYRIGHT ---- */}
+          <div className="text-center">
+            Copyright © {new Date().getFullYear()} Loyalty Exhibits. All rights
+            reserved.
+          </div>
+        </div>
+      </footer>
 
-    {/* ---- LEGAL LINKS ---- */}
-    <div className="flex flex-wrap items-center justify-center gap-4 text-neutral-400">
-      <a href="/terms" className="hover:text-neutral-200">Terms &amp; Conditions</a>
-      <span className="h-3 w-px bg-white/20" />
-      <a href="/privacy" className="hover:text-neutral-200">Privacy Statement</a>
-    </div>
-
-    {/* ---- COPYRIGHT ---- */}
-    <div className="text-center">
-      Copyright © {new Date().getFullYear()} Loyalty Exhibits. All rights reserved.
-    </div>
-  </div>
-</footer>
-<FloatingContactButton />
+      <FloatingContactButton />
     </div>
   );
 }
+
+
 
 function HeroSection() {
   return (
@@ -173,9 +183,8 @@ function HeroCarousel() {
         {slides.map((slide, i) => (
           <div
             key={i}
-            className={`absolute inset-0 transition-opacity duration-700 ${
-              i === index ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-700 ${i === index ? "opacity-100" : "opacity-0"
+              }`}
           >
             {/* Background image */}
             <Image
@@ -199,7 +208,7 @@ function HeroCarousel() {
                   px-14 sm:px-16 md:px-20
                   py-8
                   "
-                >
+              >
                 <h1 className="
                   text-2xl sm:text-4xl md:text-5xl
                   font-semibold tracking-tight
@@ -277,9 +286,8 @@ function HeroCarousel() {
             <button
               key={i}
               onClick={() => goTo(i)}
-              className={`h-2.5 w-2.5 rounded-full border border-white/60 transition ${
-                i === index ? "bg-white" : "bg-transparent"
-              }`}
+              className={`h-2.5 w-2.5 rounded-full border border-white/60 transition ${i === index ? "bg-white" : "bg-transparent"
+                }`}
             />
           ))}
         </div>
@@ -355,31 +363,165 @@ function AboutCard({ title, body }: { title: string; body: string }) {
 }
 
 function GallerySection() {
+  const items = [
+    { id: 1, title: "Artwork 1" },
+    { id: 2, title: "Artwork 2" },
+    { id: 3, title: "Artwork 3" },
+    { id: 4, title: "Artwork 4" },
+    { id: 5, title: "Artwork 5" },
+    { id: 6, title: "Artwork 6" },
+  ];
+
   return (
     <section id="works" className="scroll-mt-24 py-16">
-      <h2 className="text-2xl font-semibold tracking-tight">Works</h2>
-      <p className="mt-4 max-w-2xl text-sm text-neutral-300 sm:text-base">
-        Some exmaples of our work.
-      </p>
-
-      <div className="mt-6 grid gap-4 sm:grid-cols-3">
-        {[1, 2, 3, 4, 5, 6].map((item) => (
-          <div
-            key={item}
-            className="aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-neutral-800 to-neutral-900"
-          >
-            <div className="flex h-full items-end p-3 text-xs text-neutral-200">
-              Artwork {item}
-            </div>
-          </div>
-        ))}
+      <div className="flex items-end justify-between gap-4">
+        <div>
+          <h2 className="text-2xl font-semibold tracking-tight">Works</h2>
+          <p className="mt-4 max-w-2xl text-sm text-neutral-300 sm:text-base">
+            Some examples of our work.
+          </p>
+        </div>
       </div>
-{/* 
-      <div className="mt-8 rounded-2xl border border-dashed border-white/20 p-4 text-xs text-neutral-400">
-        3rd-party gallery embed goes here (iframe/script from your gallery
-        provider).
-      </div> */}
+
+      <WorksCarousel items={items} />
     </section>
+  );
+}
+
+// function GallerySection() {
+//   return (
+//     <section id="works" className="scroll-mt-24 py-16">
+//       <h2 className="text-2xl font-semibold tracking-tight">Works</h2>
+//       <p className="mt-4 max-w-2xl text-sm text-neutral-300 sm:text-base">
+//         Some exmaples of our work.
+//       </p>
+
+//       <div className="mt-6 grid gap-4 sm:grid-cols-3">
+//         {[1, 2, 3, 4, 5, 6].map((item) => (
+//           <div
+//             key={item}
+//             className="aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-neutral-800 to-neutral-900"
+//           >
+//             <div className="flex h-full items-end p-3 text-xs text-neutral-200">
+//               Artwork {item}
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//       {/* 
+//       <div className="mt-8 rounded-2xl border border-dashed border-white/20 p-4 text-xs text-neutral-400">
+//         3rd-party gallery embed goes here (iframe/script from your gallery
+//         provider).
+//       </div> */}
+//     </section>
+//   );
+// }
+
+function WorksCarousel({
+  items,
+}: {
+  items: { id: number; title: string }[];
+}) {
+  const trackRef = React.useRef<HTMLDivElement | null>(null);
+
+  const scrollByCards = (dir: "left" | "right") => {
+    const el = trackRef.current;
+    if (!el) return;
+
+    // scroll by ~1 screen of cards
+    const amount = Math.round(el.clientWidth * 0.9);
+    el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
+  };
+
+  return (
+    <div className="mt-6">
+      <div className="relative">
+        {/* LEFT */}
+        <button
+          type="button"
+          onClick={() => scrollByCards("left")}
+          className="
+            absolute left-2 top-1/2 -translate-y-1/2 z-20
+            h-10 w-10 rounded-full
+            bg-black/60 text-white
+            backdrop-blur
+            border border-white/10
+            hover:bg-black/80
+          "
+          aria-label="Scroll left"
+        >
+          ‹
+        </button>
+
+        {/* RIGHT */}
+        <button
+          type="button"
+          onClick={() => scrollByCards("right")}
+          className="
+            absolute right-2 top-1/2 -translate-y-1/2 z-20
+            h-10 w-10 rounded-full
+            bg-black/60 text-white
+            backdrop-blur
+            border border-white/10
+            hover:bg-black/80
+          "
+          aria-label="Scroll right"
+        >
+          ›
+        </button>
+
+        {/* TRACK */}
+        <div
+          ref={trackRef}
+          className="
+            overflow-x-auto scroll-smooth
+            [scrollbar-width:none] [-ms-overflow-style:none]
+            [&::-webkit-scrollbar]:hidden
+            pr-6
+          "
+        >
+          <div className="flex gap-4">
+            {items.map((item) => (
+              <div
+                key={item.id}
+                className="
+                  shrink-0
+                  w-[78%] sm:w-[48%] md:w-[32%]
+                  aspect-[4/5]
+                  overflow-hidden rounded-2xl
+                  border border-white/10
+                  bg-gradient-to-br from-neutral-800 to-neutral-900
+                "
+              >
+                <div className="flex h-full items-end p-4">
+                  <div
+                    className="
+                      rounded-full
+                      border border-white/10
+                      bg-black/40
+                      px-4 py-2
+                      text-xs text-neutral-200
+                      backdrop-blur
+                    "
+                  >
+                    {item.title}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* subtle edge fades */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-neutral-950 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-neutral-950 to-transparent" />
+      </div>
+
+      {/* little hint text for mobile */}
+      <div className="mt-3 text-xs text-neutral-400 sm:hidden">
+        Swipe to view more →
+      </div>
+    </div>
   );
 }
 
@@ -484,6 +626,60 @@ function ContactSection() {
   );
 }
 
+function BrandShineCard() {
+  return (
+    <section className="py-6">
+      <div
+        className="
+          relative overflow-hidden
+          rounded-3xl
+          border border-white/10
+          bg-white/5
+          px-6 py-8 sm:px-10
+          text-center
+          shadow-[0_20px_80px_-50px_rgba(0,0,0,0.8)]
+        "
+      >
+        {/* subtle glow */}
+        <div
+          className="
+            pointer-events-none absolute -top-24 left-1/2 h-48 w-[520px]
+            -translate-x-1/2 rounded-full
+            bg-purple-500/20 blur-3xl
+            opacity-70
+          "
+        />
+
+        <div className="relative mx-auto max-w-3xl">
+          {/* headline styled like a “button/chip” */}
+          <div
+            className="
+              inline-flex items-center gap-2
+              rounded-full
+              border border-white/20
+              bg-black/30
+              px-5 py-2
+              text-xs sm:text-sm
+              font-semibold
+              tracking-wide
+              text-white
+            "
+          >
+            Custom &amp; Rental Exhibits That Let Your Brand Shine
+          </div>
+
+          <p className="mt-5 text-sm sm:text-base leading-relaxed text-neutral-200">
+            Your exhibit should feel like an extension of your brand. Our team crafts
+            immersive spaces—both custom and rental—that highlight your strengths,
+            showcase your products, and create meaningful engagement. The result: an
+            exhibit that resonates with visitors and reinforces your brand identity.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FloatingContactButton() {
   const [hidden, setHidden] = React.useState(false);
 
@@ -536,3 +732,4 @@ function FloatingContactButton() {
     </a>
   );
 }
+
