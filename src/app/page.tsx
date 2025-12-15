@@ -153,14 +153,30 @@ type Slide = {
   ctaHref: string;
 };
 
-const slides: Slide[] = [
+
+const slides: Slide[] = [ 
   {
     image: "/tradeshow.png",
     headline: "Immersive Brand Experience",
     subheadline: "Custom & rental exhibits that let your brand shine.",
     ctaLabel: "Let’s Connect",
     ctaHref: "#contact",
+  },
+  {
+    image: "/womenOwned.png",
+    headline: "Immersive Brand Experience",
+    subheadline: "Custom & rental exhibits that let your brand shine.",
+    ctaLabel: "Let’s Connect",
+    ctaHref: "#contact",
+  },
+  {
+    image: "/backdroop.png",
+    headline: "Immersive Brand Experience",
+    subheadline: "Custom & rental exhibits that let your brand shine.",
+    ctaLabel: "Let’s Connect",
+    ctaHref: "#contact",
   }
+
 ];
 
 function HeroCarousel() {
