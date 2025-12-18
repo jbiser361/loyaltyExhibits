@@ -4,6 +4,8 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Header from "@/components/Header";
+import emailjs from "@emailjs/browser";
+
 
 export default function Page() {
   return (
@@ -544,7 +546,42 @@ function WorksCarousel({
   );
 }
 
+
 function ContactSection() {
+  const [status, setStatus] = React.useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMsg, setErrorMsg] = React.useState<string>("");
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("sending");
+    setErrorMsg("");
+
+    const form = e.currentTarget;
+
+    try {
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("Missing EmailJS env vars. Check .env.local");
+      }
+
+      await emailjs.sendForm(serviceId, templateId, form, {
+        publicKey,
+      });
+
+      setStatus("sent");
+      form.reset();
+
+      // optional: reset banner after a bit
+      setTimeout(() => setStatus("idle"), 4000);
+    } catch (err: any) {
+      setStatus("error");
+      setErrorMsg(err?.text || err?.message || "Failed to send. Try again.");
+    }
+  };
+
   return (
     <section id="contact" className="scroll-mt-24 py-16">
       <h2 className="text-2xl font-semibold tracking-tight">Contact</h2>
@@ -553,14 +590,12 @@ function ContactSection() {
       </p>
 
       <form
+        onSubmit={onSubmit}
         className="mt-6 grid gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 sm:grid-cols-2"
-        method="POST"
       >
         {/* Name */}
         <div>
-          <label className="block text-xs font-medium text-neutral-200">
-            Name
-          </label>
+          <label className="block text-xs font-medium text-neutral-200">Name</label>
           <input
             name="name"
             required
@@ -571,9 +606,7 @@ function ContactSection() {
 
         {/* Company */}
         <div>
-          <label className="block text-xs font-medium text-neutral-200">
-            Company
-          </label>
+          <label className="block text-xs font-medium text-neutral-200">Company</label>
           <input
             name="company"
             required
@@ -584,9 +617,7 @@ function ContactSection() {
 
         {/* Email */}
         <div>
-          <label className="block text-xs font-medium text-neutral-200">
-            Email
-          </label>
+          <label className="block text-xs font-medium text-neutral-200">Email</label>
           <input
             type="email"
             name="email"
@@ -598,9 +629,7 @@ function ContactSection() {
 
         {/* Phone */}
         <div>
-          <label className="block text-xs font-medium text-neutral-200">
-            Phone
-          </label>
+          <label className="block text-xs font-medium text-neutral-200">Phone</label>
           <input
             type="tel"
             name="phone"
@@ -612,9 +641,7 @@ function ContactSection() {
 
         {/* Message */}
         <div className="sm:col-span-2">
-          <label className="block text-xs font-medium text-neutral-200">
-            Message
-          </label>
+          <label className="block text-xs font-medium text-neutral-200">Message</label>
           <textarea
             name="message"
             required
@@ -624,20 +651,23 @@ function ContactSection() {
           />
         </div>
 
-        {/* Hidden subject for clean emails */}
-        <input
-          type="hidden"
-          name="_subject"
-          value="New Loyalty Exhibits Contact Submission"
-        />
+        {/* status row */}
+        <div className="sm:col-span-2 flex items-center justify-between gap-4">
+          <div className="text-xs">
+            {status === "sent" && (
+              <span className="text-emerald-300">✅ Sent! We’ll reach out shortly.</span>
+            )}
+            {status === "error" && (
+              <span className="text-red-300">❌ {errorMsg}</span>
+            )}
+          </div>
 
-        {/* Submit */}
-        <div className="sm:col-span-2 flex justify-end">
           <button
             type="submit"
-            className="rounded-full bg-white px-6 py-2 text-sm font-medium text-black transition hover:bg-neutral-200"
+            disabled={status === "sending"}
+            className="rounded-full bg-white px-6 py-2 text-sm font-medium text-black transition hover:bg-neutral-200 disabled:opacity-60"
           >
-            Send Message
+            {status === "sending" ? "Sending..." : "Send Message"}
           </button>
         </div>
       </form>
